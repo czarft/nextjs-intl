@@ -8,10 +8,10 @@ function HomePage() {
   return (
     <Layout>
       <p>
-        <FormattedMessage id="home.title" defaultMessage='Home page' />
+        <FormattedMessage id="home.title" defaultMessage="Home page" />
       </p>
     </Layout>
   )
-} 
+}
 
 export default withIntl(HomePage)

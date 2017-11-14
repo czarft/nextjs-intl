@@ -1,9 +1,10 @@
 {
-    "vsicons.presets.angular": false,
     "eslint.autoFixOnSave": true,
+    "editor.formatOnSave": true,
+    "vsicons.presets.angular": false,
+    "javascript.validate.enable": false,
     "search.exclude": {
-        "**/node_modules": true,
-        ".next": true
+        "**/node_modules": true
     },
     "files.exclude": {
         "**/.git": true,
