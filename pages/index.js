@@ -1,8 +1,17 @@
 import React from 'react'
-import Layout from '../components/Layout'
+import { FormattedMessage } from 'react-intl'
 
-export default () => (
-  <Layout>
-    <p>Homepage</p>
-  </Layout>
-)
+import Layout from '../components/Layout'
+import withIntl from '../components/hocs/withIntl'
+
+function HomePage() {
+  return (
+    <Layout>
+      <p>
+        <FormattedMessage id="home.title" defaultMessage='Home page' />
+      </p>
+    </Layout>
+  )
+} 
+
+export default withIntl(HomePage)

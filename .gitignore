@@ -20,4 +20,9 @@ node_modules/
 # dotenv environment variables file
 .env
 
+# Next.js
 .next
+
+# react-intl
+lang/.messages/
+lang/en.json

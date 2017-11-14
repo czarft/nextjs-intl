@@ -1,8 +1,17 @@
 import React from 'react'
-import Layout from '../components/Layout'
+import { FormattedMessage } from 'react-intl'
 
-export default () => (
-  <Layout>
-    <p>About</p>
-  </Layout>
-)
+import Layout from '../components/Layout'
+import withIntl from '../components/hocs/withIntl'
+
+function AboutPage() {
+  return (
+    <Layout>
+      <p>
+        <FormattedMessage id="about.title" defaultMessage='About page' />
+      </p>
+    </Layout>
+  )
+}
+
+export default withIntl(AboutPage)
