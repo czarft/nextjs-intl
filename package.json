@@ -1,0 +1,26 @@
+{
+    "name": "nextjs-intl",
+    "description": "",
+    "version": "1.0.0",
+    "main": "server.js",
+    "scripts": {
+        "dev": "node server.js",
+        "start": "NODE_ENV=production node server.js"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/suranartnc/nextjs-intl.git"
+    },
+    "author": "Suranart Niamcome",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/suranartnc/nextjs-intl/issues"
+    },
+    "homepage": "https://github.com/suranartnc/nextjs-intl#readme",
+    "dependencies": {
+        "next": "^4.1.4",
+        "react": "^16.1.1",
+        "react-dom": "^16.1.1"
+    },
+    "devDependencies": {}
+}
