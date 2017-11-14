@@ -2,22 +2,23 @@ const IntlPolyfill = require('intl')
 Intl.NumberFormat = IntlPolyfill.NumberFormat
 Intl.DateTimeFormat = IntlPolyfill.DateTimeFormat
 
-const {readFileSync} = require('fs')
-const {basename} = require('path')
-const {createServer} = require('http')
+const { readFileSync } = require('fs')
+const { basename } = require('path')
+const { createServer } = require('http')
 const accepts = require('accepts')
 const glob = require('glob')
 const next = require('next')
 
 const port = parseInt(process.env.PORT, 10) || 3000
 const dev = process.env.NODE_ENV !== 'production'
-const app = next({dev})
-const handle = app.getRequestHandler()
+const app = next({ dev })
+const routes = require('./routes')
+const handler = routes.getRequestHandler(app)
 
-const languages = glob.sync('./lang/*.json').map((f) => basename(f, '.json'))
+const languages = glob.sync('./lang/*.json').map(f => basename(f, '.json'))
 
 const localeDataCache = new Map()
-const getLocaleDataScript = (locale) => {
+const getLocaleDataScript = locale => {
   const lang = locale.split('-')[0]
   if (!localeDataCache.has(lang)) {
     const localeDataFile = require.resolve(`react-intl/locale-data/${lang}`)
@@ -27,7 +28,7 @@ const getLocaleDataScript = (locale) => {
   return localeDataCache.get(lang)
 }
 
-const getMessages = (locale) => {
+const getMessages = locale => {
   return require(`./lang/${locale}.json`)
 }
 
@@ -39,8 +40,8 @@ app.prepare().then(() => {
     req.localeDataScript = getLocaleDataScript(locale)
     req.messages = dev ? {} : getMessages(locale)
 
-    handle(req, res)
-  }).listen(port, (err) => {
+    handler(req, res)
+  }).listen(port, err => {
     if (err) throw err
     console.log(`> Ready on http://localhost:${port}`)
   })

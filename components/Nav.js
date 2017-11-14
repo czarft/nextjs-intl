@@ -1,27 +1,31 @@
 import React from 'react'
-import Link from 'next/link'
+import { Link } from '../routes'
 
-export default () => (
-  <nav>
-    <li>
-      <Link href='/'>
-        <a>Home</a>
-      </Link>
-    </li>
-    <li>
-      <Link href='/about'>
-        <a>About</a>
-      </Link>
-    </li>
+function Nav() {
+  return (
+    <nav>
+      <li>
+        <Link route="home">
+          <a>Home</a>
+        </Link>
+      </li>
+      <li>
+        <Link route="about">
+          <a>About</a>
+        </Link>
+      </li>
 
-    <style jsx>{`
-      nav {
-        display: flex;
-      }
-      li {
-        list-style: none;
-        margin-right: 1rem;
-      }
-    `}</style>
-  </nav>
-)
+      <style jsx>{`
+        nav {
+          display: flex;
+        }
+        li {
+          list-style: none;
+          margin-right: 1rem;
+        }
+      `}</style>
+    </nav>
+  )
+}
+
+export default Nav
